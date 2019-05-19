@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="video_service_ffmpeg:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>video_service_ffmpeg</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="video_service_ffmpeg-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="video_service_ffmpeg:war exploded" />
+    </root>
+  </artifact>
+</component>
