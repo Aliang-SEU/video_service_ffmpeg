@@ -2,3 +2,6 @@
 springmvc和tomcat整合的图片服务器
 将该项目打成war包，部署到tomcat
 修改host.properties文件ip为服务器ip地址
+
+
+视频服务器，无论什么样的视频上传上去都会将视频转换为mp4格式的，并且从中抽取一帧图片发送个前段，用了ffpegm
