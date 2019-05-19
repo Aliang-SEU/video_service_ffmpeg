@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:property-placeholder location="classpath:host.properties"/>
+
+    <!-- 扫描@Controler  @Service   -->
+    <context:component-scan base-package="com.controller"/>
+
+    <!-- 处理器映射器 -->
+    <!--         <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
+    <!-- 处理器适配器 -->
+    <!--         <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven />
+
+    <!-- 对静态资源放行  -->
+    <mvc:resources location="/upload/" mapping="/upload/**" />
+
+    <!-- 上传图片配置实现类 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设定默认编码 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <!-- 上传图片的大小   B   5M  1*1024*1024*5-->
+        <property name="maxUploadSize" value="50000000"/>
+        <property name="resolveLazily" value="true"/>
+    </bean>
+
+
+    <mvc:default-servlet-handler/>
+    <!-- Springmvc的异常处理器 -->
+    <!--         <bean class="com.itheima.springmvc.exception.CustomExceptionResolver"/> -->
+
+    <!-- 视图解释器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+</beans>

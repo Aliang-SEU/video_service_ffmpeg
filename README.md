@@ -1,0 +1,4 @@
+# sringmvcphoto
+springmvc和tomcat整合的图片服务器
+将该项目打成war包，部署到tomcat
+修改host.properties文件ip为服务器ip地址
